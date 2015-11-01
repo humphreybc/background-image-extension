@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "Image downloader",
+  "name": "Image Downloader",
   "description": "Download logos, protected images, and background images with a single click.",
   "version": "0.0.1",
 
