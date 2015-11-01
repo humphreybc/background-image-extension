@@ -1,5 +1,5 @@
 # Image Downloader
-Chrome extension to download logos, "protected" images (for example on instagram.com), and background images with a single click.
+[Chrome extension](https://chrome.google.com/webstore/detail/image-downloader-beta/enhcpfaedghhmifgjmgabebfmeloogep) to download logos, "protected" images (for example on instagram.com), and background images with a single click.
 
 * Downloads CSS background-image
 * Downloads regular <img> images
