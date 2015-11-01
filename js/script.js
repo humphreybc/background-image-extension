@@ -1,9 +1,6 @@
 (function () {
-  console.log('script.js loaded');
-
   var element = null;
 
-  // Grab the clicked element on mousedown
   document.addEventListener('mousedown', function(event){
     if(event.button == 2) {
       element = event.target;
@@ -17,26 +14,31 @@
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-  };
+  }
+
+  function hasBackgroundImage(backgroundImage) {
+    return backgroundImage.indexOf('url') >= 0;
+  }
 
   function getBackgroundImageUrl(backgroundImage) {
-    url = backgroundImage.split('(')[1];
-    url = url.split(')')[0];
-    return url;
-  };
+    return backgroundImage.match(/\((.*?)\)/)[1].replace(/('|")/g,'');
+  }
 
-  // Send the value of the clicked element back to background.js
   chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-
       backgroundImage = $(element).css('background-image');
 
-      if (backgroundImage === 'none') {
-        url = $(element).parent().children().find('img').attr('src');
-      } else {
+      if (hasBackgroundImage(backgroundImage)) {
         url = getBackgroundImageUrl(backgroundImage);
+      } else {
+        url = $(element).parent().find('img').attr('src');
       }
 
-      downloadFromUrl(url);
+      if (typeof url !== "undefined") {
+        downloadFromUrl(url);
+      } else {
+        alert("Sorry, can't download this image.");
+      }
     });
 } ());
+

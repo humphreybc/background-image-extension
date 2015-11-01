@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Background image downloader",
-  "description": "Easily lets you download images that are set as background-image in CSS",
+  "name": "Image downloader",
+  "description": "Download logos, protected images, and background images with a single click.",
   "version": "0.0.1",
 
   "permissions": [
