@@ -6,8 +6,16 @@
   "version": "0.0.1",
 
   "permissions": [
-    "tabs",
-    "contextMenus"
+    "tabs", "contextMenus"
+  ],
+
+  "background": { "scripts": ["js/background.js"] },
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["js/jquery-2.1.4.min.js", "js/script.js"]
+    }
   ],
 
   "web_accessible_resources": [
@@ -18,7 +26,5 @@
     "16": "assets/icon_16.png",
     "48": "assets/icon_48.png",
     "128": "assets/icon_128.png"
-  },
-
-  "background" : { "scripts": ["background.js"] }
+  }
 }
